@@ -7,7 +7,7 @@ class SyncService {
   final _db = DBHelper.instance;
 
   Future<void> pullRoster() async {
-    final rows = await _supabase.from('students').select();
+    final rows = await _supabase.from('students').select('id_number, name, dept, year');
     await _db.replaceRoster(List<Map<String, dynamic>>.from(rows));
   }
 

@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       await _sync.pullRoster();
       setState(() => _syncStatus = 'Synced ${DateTime.now().toLocal()}');
     } catch (e) {
+      print('Sync error: $e');
       setState(() => _syncStatus = 'Offline — using cached roster');
     }
   }
