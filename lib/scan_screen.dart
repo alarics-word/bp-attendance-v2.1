@@ -50,7 +50,7 @@ class _ScanScreenState extends State<ScanScreen> {
     await _db.addAttendance(
         widget.sessionName, widget.date, code, student['name'] as String);
     setState(() {
-      _lastStatusMessage = '✅ ${student['name']} scanned';
+      _lastStatusMessage = '${student['name']} scanned';
       _statusColor = Colors.green;
       _recentScans.add(code);
     });
@@ -84,7 +84,7 @@ class _ScanScreenState extends State<ScanScreen> {
                   widget.sessionName, widget.date, scannedId, nameCtrl.text,
                   isManual: true);
               setState(() {
-                _lastStatusMessage = '✅ ${nameCtrl.text} added & scanned (manual)';
+                _lastStatusMessage = '${nameCtrl.text} added & scanned (manual)';
                 _statusColor = Colors.orange;
                 _recentScans.add(scannedId);
               });
